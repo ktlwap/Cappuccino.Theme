@@ -1,0 +1,16 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Cappuccino.Demo.App"
+             xmlns:local="using:Cappuccino.Demo"
+             xmlns:cappuccino="clr-namespace:Cappuccino;assembly=Cappuccino"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <cappuccino:CappuccinoTheme />
+    </Application.Styles>
+</Application>
