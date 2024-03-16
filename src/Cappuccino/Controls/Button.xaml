@@ -1,0 +1,62 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+    <Design.PreviewWith>
+        <StackPanel Spacing="10">
+            <Button Width="100" Height="30">Button</Button>
+            <Button Width="100" Height="30" IsEnabled="False">Disabled</Button>
+        </StackPanel>
+    </Design.PreviewWith>
+    
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <Color x:Key="ButtonBackgroundColor">#F2F0EF</Color>
+            <Color x:Key="ButtonForegroundColor">#3B4041</Color>
+            <Color x:Key="ButtonDisabledBackgroundColor">#F2F0EF</Color>
+            <Color x:Key="ButtonDisabledForegroundColor">#3B4041</Color>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <Color x:Key="ButtonBackgroundColor">#353535</Color>
+            <Color x:Key="ButtonForegroundColor">#CBCCCD</Color>
+            <Color x:Key="ButtonDisabledBackgroundColor">#F2F0EF</Color>
+            <Color x:Key="ButtonDisabledForegroundColor">#3B4041</Color>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource ButtonBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundColor}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  RecognizesAccessKey="True"
+                                  TextElement.Foreground="{TemplateBinding Foreground}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
+        </Style>
+        <Style Selector="^:pressed  /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ThemeControlHighBrush}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.7" />
+            <Setter Property="Background" Value="{DynamicResource ButtonDisabledBackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDisabledForegroundColor}"/>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

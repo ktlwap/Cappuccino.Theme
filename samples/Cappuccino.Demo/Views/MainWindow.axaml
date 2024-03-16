@@ -15,5 +15,8 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <Button>Button</Button>
+    <StackPanel Spacing="5">
+        <Button Width="100" Height="30">Button</Button>
+        <Button Width="100" Height="30" IsEnabled="False">Disabled</Button>
+    </StackPanel>
 </Window>

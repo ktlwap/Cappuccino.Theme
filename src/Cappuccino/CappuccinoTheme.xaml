@@ -4,8 +4,11 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <MergeResourceInclude Source="avares://Cappuccino/Controls/Button.axaml" />
+                <MergeResourceInclude Source="/Controls/Window.xaml" />
+                <MergeResourceInclude Source="/Controls/Button.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
+    
+    <StyleInclude Source="avares://Avalonia.Themes.Simple/SimpleTheme.xaml" />
 </Styles>
